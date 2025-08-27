@@ -1,0 +1,106 @@
+{
+  "name": "python-project-creator",
+  "displayName": "Python Project Creator",
+  "description": "快速创建标准化 Python 项目结构的 VSCode 扩展",
+  "version": "1.0.0",
+  "publisher": "changfan",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "python",
+    "project",
+    "template",
+    "generator",
+    "virtual environment"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "python-project-creator.newProject",
+        "title": "New Project",
+        "category": "Python Project Creator"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "pythonProjectExplorer",
+          "name": "Python Project Creator",
+          "when": "!workspaceFolderCount"
+        }
+      ]
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "python-project-creator.newProject",
+          "when": "explorerResourceIsFolder",
+          "group": "2_workspace"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "python-project-creator.newProject"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Python Project Creator",
+      "properties": {
+        "python-project-creator.defaultProjectPath": {
+          "type": "string",
+          "default": "~/Projects",
+          "description": "默认项目创建路径"
+        },
+        "python-project-creator.preferredPythonVersion": {
+          "type": "string",
+          "default": "auto",
+          "description": "首选 Python 版本"
+        },
+        "python-project-creator.autoInstallDevDeps": {
+          "type": "boolean",
+          "default": true,
+          "description": "自动安装开发依赖"
+        },
+        "python-project-creator.defaultTemplate": {
+          "type": "string",
+          "default": "basic",
+          "enum": ["basic", "flask", "data-science", "cli"],
+          "description": "默认项目模板"
+        },
+        "python-project-creator.gitInitialization": {
+          "type": "boolean",
+          "default": true,
+          "description": "自动初始化 Git 仓库"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "@vscode/test-electron": "^2.1.5"
+  },
+  "author": "changfan",
+  "license": "MIT"
+}
