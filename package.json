@@ -86,7 +86,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package --allow-missing-repository",
+    "install-vsce": "npm install -g @vscode/vsce"
   },
   "devDependencies": {
     "@types/vscode": "^1.70.0",

@@ -280,6 +280,11 @@ src/
 ### 安装方式
 1. **从 VSCode Marketplace 安装**（计划中）
 2. **从 VSIX 文件安装**
+   - 下载 `.vsix` 文件
+   - 在 VSCode 中按 `Ctrl+Shift+P` 打开命令面板
+   - 输入 "Extensions: Install from VSIX..."
+   - 选择下载的 `.vsix` 文件
+   - 重启 VSCode
 3. **开发模式运行**
 
 ### 使用步骤
@@ -293,8 +298,8 @@ src/
 
 ### 开发环境设置
 ```bash
-# 克隆项目
-git clone <repository-url>
+# 克隆项目  
+git clone https://github.com/changfan/python-project-creator
 cd python-project-creator
 
 # 安装依赖
@@ -303,6 +308,17 @@ npm install
 # 编译和运行
 npm run compile
 # 按 F5 启动扩展开发主机
+```
+
+### 打包扩展
+```bash
+# 安装打包工具（首次使用）
+npm run install-vsce
+
+# 打包为 VSIX 文件
+npm run package
+
+# 打包后会生成 python-project-creator-1.0.0.vsix 文件
 ```
 
 ### 测试
@@ -336,9 +352,9 @@ MIT License
 
 ## 支持和反馈
 
-- **GitHub Issues**: [报告问题或建议功能](repository-url/issues)
-- **文档**: [完整文档](repository-url/docs)
-- **示例**: [项目示例](repository-url/examples)
+- **GitHub Issues**: 报告问题或建议功能
+- **文档**: 完整文档
+- **示例**: 项目示例
 
 ---
 
