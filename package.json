@@ -27,15 +27,13 @@
         "category": "Python Project Creator"
       }
     ],
-    "views": {
-      "explorer": [
-        {
-          "id": "pythonProjectExplorer",
-          "name": "Python Project Creator",
-          "when": "!workspaceFolderCount"
-        }
-      ]
-    },
+    "viewsWelcome": [
+      {
+        "view": "explorer",
+        "contents": "[$(file-directory) Create Python Project](command:python-project-creator.newProject)",
+        "when": "workspaceFolderCount == 0"
+      }
+    ],
     "menus": {
       "explorer/context": [
         {
